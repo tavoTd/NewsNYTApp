@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  NewsNYTApp
 //
 //  Created by Gustavo Téllez Díaz on 28/11/24.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        self.view.backgroundColor = UIColor.systemBlue
     }
-
-
 }
-

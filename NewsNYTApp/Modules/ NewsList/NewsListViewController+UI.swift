@@ -14,7 +14,7 @@ extension NewsListViewController {
         self.tableView.backgroundColor = UIColor.lightCyan
         
         self.navigationView.configComponents(navigation: self.navigationController,
-                                             title: "The Most Viewed",
+                                             title: "The News Most Viewed",
                                              iconLeftButton: nil)
         
         self.view.addSubview(navigationView)

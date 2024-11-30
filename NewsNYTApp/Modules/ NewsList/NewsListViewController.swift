@@ -35,7 +35,6 @@ class NewsListViewController: UIViewController {
         self.buildUIComponents()
         self.buildConstraints()
         self.setupObservers()
-        self.viewModel.getNewsList()
     }
 }
 
@@ -63,6 +62,5 @@ extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selecciono la celda: \(indexPath.row)")
     }
 }

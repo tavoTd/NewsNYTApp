@@ -10,7 +10,17 @@
 		77EAAEA52CF8B46300591CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEA42CF8B46300591CCF /* AppDelegate.swift */; };
 		77EAAEAE2CF8B46300591CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAD2CF8B46300591CCF /* Assets.xcassets */; };
 		77EAAEB12CF8B46300591CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAF2CF8B46300591CCF /* LaunchScreen.storyboard */; };
-		77EAAEBB2CF8B83D00591CCF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEBA2CF8B83D00591CCF /* HomeViewController.swift */; };
+		77EAAEBB2CF8B83D00591CCF /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEBA2CF8B83D00591CCF /* NewsListViewController.swift */; };
+		77EAAEBF2CF9427600591CCF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEBE2CF9427600591CCF /* Coordinator.swift */; };
+		77EAAEC12CF942E900591CCF /* NewsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEC02CF942E900591CCF /* NewsListCoordinator.swift */; };
+		77EAAEC42CF9458D00591CCF /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEC32CF9458D00591CCF /* NavigationView.swift */; };
+		77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEC52CF948E100591CCF /* NewsListViewController+UI.swift */; };
+		77EAAEC92CFA912F00591CCF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEC82CFA912F00591CCF /* UIColor+Extension.swift */; };
+		77EAAECB2CFA948400591CCF /* NewsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAECA2CFA948400591CCF /* NewsListTableViewCell.swift */; };
+		77EAAECE2CFAC56000591CCF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAECD2CFAC55F00591CCF /* UIView+Extension.swift */; };
+		77EAAED02CFB55F400591CCF /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAECF2CFB55F400591CCF /* NewsListViewModel.swift */; };
+		77EAAED22CFB565800591CCF /* NewsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAED12CFB565800591CCF /* NewsListModel.swift */; };
+		77EAAED42CFB589500591CCF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAED32CFB589500591CCF /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,7 +29,17 @@
 		77EAAEAD2CF8B46300591CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77EAAEB02CF8B46300591CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EAAEB22CF8B46300591CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77EAAEBA2CF8B83D00591CCF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		77EAAEBA2CF8B83D00591CCF /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		77EAAEBE2CF9427600591CCF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		77EAAEC02CF942E900591CCF /* NewsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCoordinator.swift; sourceTree = "<group>"; };
+		77EAAEC32CF9458D00591CCF /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		77EAAEC52CF948E100591CCF /* NewsListViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsListViewController+UI.swift"; sourceTree = "<group>"; };
+		77EAAEC82CFA912F00591CCF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		77EAAECA2CFA948400591CCF /* NewsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListTableViewCell.swift; sourceTree = "<group>"; };
+		77EAAECD2CFAC55F00591CCF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		77EAAECF2CFB55F400591CCF /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		77EAAED12CFB565800591CCF /* NewsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListModel.swift; sourceTree = "<group>"; };
+		77EAAED32CFB589500591CCF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +72,9 @@
 		77EAAEA32CF8B46300591CCF /* NewsNYTApp */ = {
 			isa = PBXGroup;
 			children = (
-				77EAAEB82CF8B7F400591CCF /* Modules */,
 				77EAAEA42CF8B46300591CCF /* AppDelegate.swift */,
+				77EAAEB82CF8B7F400591CCF /* Modules */,
+				77EAAEBC2CF9424600591CCF /* Utils */,
 				77EAAEAD2CF8B46300591CCF /* Assets.xcassets */,
 				77EAAEAF2CF8B46300591CCF /* LaunchScreen.storyboard */,
 				77EAAEB22CF8B46300591CCF /* Info.plist */,
@@ -72,9 +93,50 @@
 		77EAAEB92CF8B80B00591CCF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				77EAAEBA2CF8B83D00591CCF /* HomeViewController.swift */,
+				77EAAEC02CF942E900591CCF /* NewsListCoordinator.swift */,
+				77EAAEBA2CF8B83D00591CCF /* NewsListViewController.swift */,
+				77EAAEC52CF948E100591CCF /* NewsListViewController+UI.swift */,
+				77EAAECA2CFA948400591CCF /* NewsListTableViewCell.swift */,
+				77EAAECF2CFB55F400591CCF /* NewsListViewModel.swift */,
+				77EAAED12CFB565800591CCF /* NewsListModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		77EAAEBC2CF9424600591CCF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEC22CF9456500591CCF /* VisualComponents */,
+				77EAAEC72CFA910600591CCF /* Extension */,
+				77EAAEBD2CF9425C00591CCF /* Others */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		77EAAEBD2CF9425C00591CCF /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEBE2CF9427600591CCF /* Coordinator.swift */,
+				77EAAED32CFB589500591CCF /* Observable.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		77EAAEC22CF9456500591CCF /* VisualComponents */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEC32CF9458D00591CCF /* NavigationView.swift */,
+			);
+			path = VisualComponents;
+			sourceTree = "<group>";
+		};
+		77EAAEC72CFA910600591CCF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEC82CFA912F00591CCF /* UIColor+Extension.swift */,
+				77EAAECD2CFAC55F00591CCF /* UIView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +209,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EAAEC92CFA912F00591CCF /* UIColor+Extension.swift in Sources */,
 				77EAAEA52CF8B46300591CCF /* AppDelegate.swift in Sources */,
-				77EAAEBB2CF8B83D00591CCF /* HomeViewController.swift in Sources */,
+				77EAAEC12CF942E900591CCF /* NewsListCoordinator.swift in Sources */,
+				77EAAECE2CFAC56000591CCF /* UIView+Extension.swift in Sources */,
+				77EAAED42CFB589500591CCF /* Observable.swift in Sources */,
+				77EAAEC42CF9458D00591CCF /* NavigationView.swift in Sources */,
+				77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */,
+				77EAAEBB2CF8B83D00591CCF /* NewsListViewController.swift in Sources */,
+				77EAAED22CFB565800591CCF /* NewsListModel.swift in Sources */,
+				77EAAED02CFB55F400591CCF /* NewsListViewModel.swift in Sources */,
+				77EAAECB2CFA948400591CCF /* NewsListTableViewCell.swift in Sources */,
+				77EAAEBF2CF9427600591CCF /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,9 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let view = HomeViewController()
-        let navigation = UINavigationController(rootViewController: view)
+        let navigation = UINavigationController()
         navigation.isNavigationBarHidden = true
+
+        let newsListCoordinator = NewsListCoordinator(navigation: navigation)
+        newsListCoordinator.start()
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white

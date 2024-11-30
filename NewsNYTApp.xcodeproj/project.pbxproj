@@ -27,6 +27,10 @@
 		77EAAEDD2CFB89A500591CCF /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEDC2CFB89A500591CCF /* DataRequest.swift */; };
 		77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEDE2CFB917900591CCF /* ServiceError.swift */; };
 		77EAAEE22CFB9E9600591CCF /* NewsMostViewedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEE12CFB9E9600591CCF /* NewsMostViewedService.swift */; };
+		77EAAEE62CFBD86900591CCF /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEE52CFBD86900591CCF /* Loader.swift */; };
+		77EAAEE82CFBD89F00591CCF /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEE72CFBD89F00591CCF /* LoaderView.swift */; };
+		77EAAEED2CFBD90000591CCF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 77EAAEEC2CFBD90000591CCF /* Lottie */; };
+		77EAAEEF2CFBDA6400591CCF /* animationLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEEE2CFBDA6400591CCF /* animationLoader.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,9 @@
 		77EAAEDC2CFB89A500591CCF /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		77EAAEDE2CFB917900591CCF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		77EAAEE12CFB9E9600591CCF /* NewsMostViewedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMostViewedService.swift; sourceTree = "<group>"; };
+		77EAAEE52CFBD86900591CCF /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		77EAAEE72CFBD89F00591CCF /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		77EAAEEE2CFBDA6400591CCF /* animationLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animationLoader.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EAAEED2CFBD90000591CCF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +148,7 @@
 		77EAAEC22CF9456500591CCF /* VisualComponents */ = {
 			isa = PBXGroup;
 			children = (
+				77EAAEE42CFBD83100591CCF /* Loader */,
 				77EAAEC32CF9458D00591CCF /* NavigationView.swift */,
 			);
 			path = VisualComponents;
@@ -173,6 +182,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		77EAAEE42CFBD83100591CCF /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEE52CFBD86900591CCF /* Loader.swift */,
+				77EAAEE72CFBD89F00591CCF /* LoaderView.swift */,
+				77EAAEEE2CFBDA6400591CCF /* animationLoader.json */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +208,9 @@
 			dependencies = (
 			);
 			name = NewsNYTApp;
+			packageProductDependencies = (
+				77EAAEEC2CFBD90000591CCF /* Lottie */,
+			);
 			productName = NewsNYTApp;
 			productReference = 77EAAEA12CF8B46300591CCF /* NewsNYTApp.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 77EAAE982CF8B46300591CCF;
+			packageReferences = (
+				77EAAEEB2CFBD90000591CCF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 77EAAEA22CF8B46300591CCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EAAEB12CF8B46300591CCF /* LaunchScreen.storyboard in Resources */,
+				77EAAEEF2CFBDA6400591CCF /* animationLoader.json in Resources */,
 				77EAAEAE2CF8B46300591CCF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +276,7 @@
 				77EAAECE2CFAC56000591CCF /* UIView+Extension.swift in Sources */,
 				77EAAED42CFB589500591CCF /* Observable.swift in Sources */,
 				77EAAEC42CF9458D00591CCF /* NavigationView.swift in Sources */,
+				77EAAEE62CFBD86900591CCF /* Loader.swift in Sources */,
 				77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */,
 				77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */,
 				77EAAED62CFB694F00591CCF /* NewsMostViewedResponse.swift in Sources */,
@@ -259,6 +286,7 @@
 				77EAAED02CFB55F400591CCF /* NewsListViewModel.swift in Sources */,
 				77EAAECB2CFA948400591CCF /* NewsListTableViewCell.swift in Sources */,
 				77EAAEBF2CF9427600591CCF /* Coordinator.swift in Sources */,
+				77EAAEE82CFBD89F00591CCF /* LoaderView.swift in Sources */,
 				77EAAEE22CFB9E9600591CCF /* NewsMostViewedService.swift in Sources */,
 				77EAAEDD2CFB89A500591CCF /* DataRequest.swift in Sources */,
 			);
@@ -479,6 +507,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77EAAEEB2CFBD90000591CCF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77EAAEEC2CFBD90000591CCF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77EAAEEB2CFBD90000591CCF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77EAAE992CF8B46300591CCF /* Project object */;
 }

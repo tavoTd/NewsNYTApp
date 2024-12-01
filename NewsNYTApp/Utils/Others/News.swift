@@ -8,15 +8,16 @@
 import UIKit
 
 class News {
-    let id: Int
-    let url: String
-    let publishedDate: String
-    let updated: String
-    let section: String
-    let subsection: String
-    let byline: String
-    let type: String
-    let title: String
+    var id: Int
+    var url: String
+    var publishedDate: String
+    var updated: String
+    var section: String
+    var subsection: String
+    var byline: String
+    var type: String
+    var title: String
+    var abstract: String
     var image: NewsImage
     
     init(data: NewsMostViewedData) {
@@ -29,6 +30,7 @@ class News {
         self.byline = data.byline ?? ""
         self.type = data.type ?? ""
         self.title = data.title ?? ""
+        self.abstract = data.abstract ?? ""
         self.image = NewsImage()
     }
     
@@ -49,11 +51,11 @@ class News {
             let image = await UIImage.getImage(from: element.url ?? "")
             
             if element.format == "Standard Thumbnail" {
-                self.image.small = image
+                self.image.smallSize = image
             } else if element.format == "mediumThreeByTwo210" {
-                self.image.normal = image
+                self.image.normalSize = image
             } else if element.format == "mediumThreeByTwo440" {
-                self.image.large = image
+                self.image.largeSize = image
             }
         }
     }
@@ -63,21 +65,21 @@ class NewsImage {
     var type: String
     var caption: String
     var copyright: String
-    var small: UIImage?
-    var normal: UIImage?
-    var large: UIImage?
+    var smallSize: UIImage?
+    var normalSize: UIImage?
+    var largeSize: UIImage?
     
     init(type: String = "",
          caption: String = "",
          copyright: String = "",
-         small: UIImage? = UIImage(named: "img_noAvailable"),
-         normal: UIImage? = UIImage(named: "img_noAvailable"),
-         large: UIImage? = UIImage(named: "img_noAvailable")) {
+         smallSize: UIImage? = UIImage(named: "img_noAvailable"),
+         normalSize: UIImage? = UIImage(named: "img_noAvailable"),
+         largeSize: UIImage? = UIImage(named: "img_noAvailable")) {
         self.type = type
         self.caption = caption
         self.copyright = copyright
-        self.small = small
-        self.normal = normal
-        self.large = large
+        self.smallSize = smallSize
+        self.normalSize = normalSize
+        self.largeSize = largeSize
     }
 }

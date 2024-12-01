@@ -109,7 +109,7 @@ class NewsListTableViewCell: UITableViewCell {
     }
     
     func configure(with data: News) {
-        self.imageNews.image = data.image.normal
+        self.imageNews.image = data.image.normalSize
         self.labelTitleNew.text = data.title
     }
 }

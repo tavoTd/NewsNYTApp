@@ -9,11 +9,16 @@ import UIKit
 
 class NewsListViewModel {
     
-    var model = NewsListModel()
+    private let model: NewsListModel
     var showNewsListObservable: Observable<Bool> = Observable(initialValue: false)
     var showErrorService: Observable<String> = Observable(initialValue: "")
     
-    public init() {
+    var newsListSize: Int {
+        return model.newsList.count
+    }
+    
+    init(model: NewsListModel) {
+        self.model = model
     }
     
     func fetchNewsMostViewed() {
@@ -44,5 +49,9 @@ class NewsListViewModel {
             self.model.newsList = updatedNewsList
             self.showNewsListObservable.value = true
         }
+    }
+    
+    func getNews(from index: Int) -> News {
+        return model.newsList[index]
     }
 }

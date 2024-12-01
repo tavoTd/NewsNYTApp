@@ -10,7 +10,19 @@ import UIKit
 class NewsListCoordinator: Coordinator {
 
     func start() {
-        let viewController = NewsListViewController()
+        let model = NewsListModel()
+        let viewModel = NewsListViewModel(model: model)
+        let viewController = NewsListViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        
+        navigation?.pushViewController(viewController, animated: true)
+    }
+    
+    func showNewsDetail(of news: News) {
+        let model = NewsDetailModel(news: news)
+        let viewModel = NewsDetailViewModel(model: model)
+        let viewController = NewsDetailViewController(viewModel: viewModel)
+        
         navigation?.pushViewController(viewController, animated: true)
     }
 }

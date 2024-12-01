@@ -33,6 +33,10 @@
 		77EAAEEF2CFBDA6400591CCF /* animationLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEEE2CFBDA6400591CCF /* animationLoader.json */; };
 		77EAAEF22CFBE19900591CCF /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF12CFBE19900591CCF /* News.swift */; };
 		77EAAEF42CFBEF2E00591CCF /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF32CFBEF2E00591CCF /* UIImage+Extension.swift */; };
+		77EAAEF72CFC9B1800591CCF /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF62CFC9B1700591CCF /* NewsDetailViewController.swift */; };
+		77EAAEF92CFC9B9900591CCF /* NewsDetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF82CFC9B9900591CCF /* NewsDetailViewController+UI.swift */; };
+		77EAAEFD2CFC9C3F00591CCF /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEFC2CFC9C3F00591CCF /* NewsDetailViewModel.swift */; };
+		77EAAEFF2CFC9C8C00591CCF /* NewsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEFE2CFC9C8C00591CCF /* NewsDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,10 @@
 		77EAAEEE2CFBDA6400591CCF /* animationLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animationLoader.json; sourceTree = "<group>"; };
 		77EAAEF12CFBE19900591CCF /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		77EAAEF32CFBEF2E00591CCF /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		77EAAEF62CFC9B1700591CCF /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		77EAAEF82CFC9B9900591CCF /* NewsDetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDetailViewController+UI.swift"; sourceTree = "<group>"; };
+		77EAAEFC2CFC9C3F00591CCF /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
+		77EAAEFE2CFC9C8C00591CCF /* NewsDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				77EAAEB92CF8B80B00591CCF /*  NewsList */,
+				77EAAEF52CFC9ADF00591CCF /* NewsDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -206,6 +215,17 @@
 			path = NewsMostViewed;
 			sourceTree = "<group>";
 		};
+		77EAAEF52CFC9ADF00591CCF /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEF62CFC9B1700591CCF /* NewsDetailViewController.swift */,
+				77EAAEF82CFC9B9900591CCF /* NewsDetailViewController+UI.swift */,
+				77EAAEFC2CFC9C3F00591CCF /* NewsDetailViewModel.swift */,
+				77EAAEFE2CFC9C8C00591CCF /* NewsDetailModel.swift */,
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +311,7 @@
 				77EAAED42CFB589500591CCF /* Observable.swift in Sources */,
 				77EAAEC42CF9458D00591CCF /* NavigationView.swift in Sources */,
 				77EAAEE62CFBD86900591CCF /* Loader.swift in Sources */,
+				77EAAEF72CFC9B1800591CCF /* NewsDetailViewController.swift in Sources */,
 				77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */,
 				77EAAEF42CFBEF2E00591CCF /* UIImage+Extension.swift in Sources */,
 				77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */,
@@ -302,8 +323,11 @@
 				77EAAECB2CFA948400591CCF /* NewsListTableViewCell.swift in Sources */,
 				77EAAEBF2CF9427600591CCF /* Coordinator.swift in Sources */,
 				77EAAEE82CFBD89F00591CCF /* LoaderView.swift in Sources */,
+				77EAAEF92CFC9B9900591CCF /* NewsDetailViewController+UI.swift in Sources */,
+				77EAAEFF2CFC9C8C00591CCF /* NewsDetailModel.swift in Sources */,
 				77EAAEF22CFBE19900591CCF /* News.swift in Sources */,
 				77EAAEE22CFB9E9600591CCF /* NewsMostViewedService.swift in Sources */,
+				77EAAEFD2CFC9C3F00591CCF /* NewsDetailViewModel.swift in Sources */,
 				77EAAEDD2CFB89A500591CCF /* DataRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

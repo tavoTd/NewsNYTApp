@@ -96,6 +96,7 @@ class NavigationView: UIView {
             let imageButton = UIImage(named: iconLeft)
             btnLeft.setImage(imageButton, for: .normal)
             btnLeft.setImage(imageButton, for: .highlighted)
+            btnLeft.tintColor = UIColor.white
             btnLeft.addTarget(self, action: #selector(popNavigationController), for: .touchUpInside)
             btnLeft.isHidden = false
         }

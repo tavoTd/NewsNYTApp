@@ -8,7 +8,7 @@
 import Foundation
 
 class NewsListModel {
-    var newsList: [String] = []
+    var newsList: [News] = []
     
     public init() {
     }

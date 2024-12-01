@@ -11,21 +11,38 @@ class NewsListViewModel {
     
     var model = NewsListModel()
     var showNewsListObservable: Observable<Bool> = Observable(initialValue: false)
+    var showErrorService: Observable<String> = Observable(initialValue: "")
     
     public init() {
     }
     
-    func getNewsList() {
-        let service = NewsMostViewedService()
-        
+    func fetchNewsMostViewed() {
         Task {
             do {
-                let response = try await service.getNewsList()
-                print("lo que recibo es esto \(response)")
-                
+                let service = NewsMostViewedService()
+                let response = try await service.fetchNewsMostViewed()
+                self.buildNewsList(response)
+
             } catch {
+                self.showErrorService.value = "\(error.localizedDescription)"
                 print("El error que ocurrio es este \(error)")
             }
+        }
+    }
+    
+    private func buildNewsList(_ response: [NewsMostViewedData]) {
+        Task {
+            self.model.newsList.removeAll()
+            var updatedNewsList: [News] = []
+            
+            for element in response {
+                let news = News(data: element)
+                await news.getNewsImageInfo(media: element.media?.first)
+                updatedNewsList.append(news)
+            }
+            
+            self.model.newsList = updatedNewsList
+            self.showNewsListObservable.value = true
         }
     }
 }

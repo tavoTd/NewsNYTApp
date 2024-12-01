@@ -35,6 +35,12 @@ class NewsListViewController: UIViewController {
         self.buildUIComponents()
         self.buildConstraints()
         self.setupObservers()
+        self.getNewsList()
+    }
+    
+    func getNewsList() {
+        Loader.shared.show(on: self)
+        viewModel.fetchNewsMostViewed()
     }
 }
 
@@ -42,6 +48,13 @@ extension NewsListViewController {
 
     func setupObservers() {
         viewModel.showNewsListObservable.observe { value in
+            Loader.shared.dismiss()
+            self.tableView.reloadData()
+        }
+        
+        viewModel.showErrorService.observe { value in
+            Loader.shared.dismiss()
+            self.tableView.reloadData()
         }
     }
 }
@@ -49,7 +62,7 @@ extension NewsListViewController {
 extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.model.newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,6 +70,9 @@ extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsListTableViewCell.identifier, for: indexPath) as? NewsListTableViewCell else {
             return UITableViewCell()
         }
+        
+        let news = viewModel.model.newsList[indexPath.row]
+        cell.configure(with: news)
         
         return cell
     }

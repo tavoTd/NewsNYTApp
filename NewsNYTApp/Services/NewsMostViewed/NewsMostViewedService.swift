@@ -10,7 +10,7 @@ import Foundation
 class NewsMostViewedService {
     let apiKey: String = "qTl6HA9lEk9bHwEMNSrdjRAceMnSqQEZ"
     
-    func getNewsList() async throws -> [NewsMostViewedData] {
+    func fetchNewsMostViewed() async throws -> [NewsMostViewedData] {
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "api-key", value: self.apiKey)
         ]

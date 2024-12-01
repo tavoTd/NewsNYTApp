@@ -31,6 +31,8 @@
 		77EAAEE82CFBD89F00591CCF /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEE72CFBD89F00591CCF /* LoaderView.swift */; };
 		77EAAEED2CFBD90000591CCF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 77EAAEEC2CFBD90000591CCF /* Lottie */; };
 		77EAAEEF2CFBDA6400591CCF /* animationLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEEE2CFBDA6400591CCF /* animationLoader.json */; };
+		77EAAEF22CFBE19900591CCF /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF12CFBE19900591CCF /* News.swift */; };
+		77EAAEF42CFBEF2E00591CCF /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF32CFBEF2E00591CCF /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		77EAAEE52CFBD86900591CCF /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		77EAAEE72CFBD89F00591CCF /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		77EAAEEE2CFBDA6400591CCF /* animationLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animationLoader.json; sourceTree = "<group>"; };
+		77EAAEF12CFBE19900591CCF /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		77EAAEF32CFBEF2E00591CCF /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +144,7 @@
 			children = (
 				77EAAEBE2CF9427600591CCF /* Coordinator.swift */,
 				77EAAED32CFB589500591CCF /* Observable.swift */,
-				77EAAED52CFB694F00591CCF /* NewsMostViewedResponse.swift */,
+				77EAAEF12CFBE19900591CCF /* News.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -159,6 +163,7 @@
 			children = (
 				77EAAEC82CFA912F00591CCF /* UIColor+Extension.swift */,
 				77EAAECD2CFAC55F00591CCF /* UIView+Extension.swift */,
+				77EAAEF32CFBEF2E00591CCF /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,7 +182,7 @@
 		77EAAEE02CFB9E7500591CCF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				77EAAEE12CFB9E9600591CCF /* NewsMostViewedService.swift */,
+				77EAAEF02CFBDB8500591CCF /* NewsMostViewed */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -190,6 +195,15 @@
 				77EAAEEE2CFBDA6400591CCF /* animationLoader.json */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		77EAAEF02CFBDB8500591CCF /* NewsMostViewed */ = {
+			isa = PBXGroup;
+			children = (
+				77EAAEE12CFB9E9600591CCF /* NewsMostViewedService.swift */,
+				77EAAED52CFB694F00591CCF /* NewsMostViewedResponse.swift */,
+			);
+			path = NewsMostViewed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +292,7 @@
 				77EAAEC42CF9458D00591CCF /* NavigationView.swift in Sources */,
 				77EAAEE62CFBD86900591CCF /* Loader.swift in Sources */,
 				77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */,
+				77EAAEF42CFBEF2E00591CCF /* UIImage+Extension.swift in Sources */,
 				77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */,
 				77EAAED62CFB694F00591CCF /* NewsMostViewedResponse.swift in Sources */,
 				77EAAEBB2CF8B83D00591CCF /* NewsListViewController.swift in Sources */,
@@ -287,6 +302,7 @@
 				77EAAECB2CFA948400591CCF /* NewsListTableViewCell.swift in Sources */,
 				77EAAEBF2CF9427600591CCF /* Coordinator.swift in Sources */,
 				77EAAEE82CFBD89F00591CCF /* LoaderView.swift in Sources */,
+				77EAAEF22CFBE19900591CCF /* News.swift in Sources */,
 				77EAAEE22CFB9E9600591CCF /* NewsMostViewedService.swift in Sources */,
 				77EAAEDD2CFB89A500591CCF /* DataRequest.swift in Sources */,
 			);
@@ -366,6 +382,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -421,6 +438,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

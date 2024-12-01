@@ -27,7 +27,6 @@ class NewsListTableViewCell: UITableViewCell {
     private lazy var imageNew: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "img_test")//UIImage(named: "img_noAvailable")
         imageView.backgroundColor = UIColor.white
         imageView.roundCorners(corners: [.layerMinXMinYCorner, .layerMinXMaxYCorner],
                                radius: self.cornerRadius)
@@ -41,8 +40,9 @@ class NewsListTableViewCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.textAlignment = NSTextAlignment.left
         label.textColor = UIColor.black
-        label.numberOfLines = 0
-        label.text = "On the Wings of War"
+        label.numberOfLines = 4
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -67,7 +67,6 @@ class NewsListTableViewCell: UITableViewCell {
         label.textAlignment = NSTextAlignment.left
         label.textColor = UIColor.black
         label.numberOfLines = 1
-        label.text = "Published: 12-12-1994"
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -80,7 +79,6 @@ class NewsListTableViewCell: UITableViewCell {
         label.textColor = UIColor.white
         label.backgroundColor = UIColor.orange
         label.numberOfLines = 1
-        label.text = "Travel"
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -138,5 +136,12 @@ class NewsListTableViewCell: UITableViewCell {
             stackView.heightAnchor.constraint(equalToConstant: 30.0),
             stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
+    }
+    
+    func configure(with data: News) {
+        self.imageNew.image = data.image.normal
+        self.labelTitleNew.text = data.title
+        self.labelSection.text = data.section
+        self.labelPublishedDate.text = data.publishedDate
     }
 }

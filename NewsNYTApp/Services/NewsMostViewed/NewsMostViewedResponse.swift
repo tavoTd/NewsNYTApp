@@ -78,7 +78,7 @@ struct Media: Codable {
     let caption: String?
     let copyright: String?
     let approvedForSyndication: Int?
-    let mediaMetadata: [MediaMetadatum]?
+    let mediaMetadata: [MediaMetadata]?
 
     enum CodingKeys: String, CodingKey {
         case type = "type"
@@ -90,8 +90,8 @@ struct Media: Codable {
     }
 }
 
-// MARK: - MediaMetadatum
-struct MediaMetadatum: Codable {
+// MARK: - MediaMetadata
+struct MediaMetadata: Codable {
     let url: String?
     let format: String?
     let height: Int?

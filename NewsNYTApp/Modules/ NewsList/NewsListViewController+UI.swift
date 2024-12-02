@@ -16,6 +16,7 @@ extension NewsListViewController {
         self.navigationView.configComponents(navigation: self.navigationController,
                                              title: "The News Most Viewed",
                                              iconLeftButton: nil)
+        self.setupRefreshControl()
         
         self.containerView.addSubview(imageErrorService)
         self.containerView.addSubview(labelErrorService)
@@ -57,5 +58,10 @@ extension NewsListViewController {
             buttonReTry.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             buttonReTry.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
+    }
+    
+    func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshNewsList), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
 }

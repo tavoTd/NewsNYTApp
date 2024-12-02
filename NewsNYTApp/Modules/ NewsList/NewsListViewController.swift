@@ -70,6 +70,8 @@ class NewsListViewController: UIViewController {
 
         return button
     }()
+
+    var refreshControl = UIRefreshControl()
     
     private let viewModel: NewsListViewModel
     var coordinator: NewsListCoordinator?
@@ -92,6 +94,11 @@ class NewsListViewController: UIViewController {
         self.getNewsList()
     }
     
+    @objc func refreshNewsList() {
+        self.refreshControl.endRefreshing()
+        self.getNewsList()
+    }
+    
     @objc func getNewsList() {
         containerView.isHidden = true
         Loader.shared.show(on: self)
@@ -103,16 +110,22 @@ extension NewsListViewController {
 
     func setupObservers() {
         viewModel.showNewsListObservable.observe { value in
-            Loader.shared.dismiss()
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                guard let self else { return }
+                Loader.shared.dismiss()
+                self.tableView.isHidden = false
+                self.tableView.reloadData()
+            }
         }
         
         viewModel.showErrorService.observe { value in
-            Loader.shared.dismiss()
-            self.labelErrorService.text = value
-            self.tableView.isHidden = true
-            self.containerView.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                guard let self else { return }
+                Loader.shared.dismiss()
+                self.labelErrorService.text = value
+                self.tableView.isHidden = true
+                self.containerView.isHidden = false
+            }
         }
     }
 }

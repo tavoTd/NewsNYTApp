@@ -130,7 +130,7 @@ class NewsDetailViewController: UIViewController {
     func configNewsDetail() {
         let news = viewModel.newsDetail
         
-        imageNews.image = news.image.largeSize
+        imageNews.image = news.image.large
         labelNewsTitle.text = news.title
         labelNewsSection.text = news.section
         labelNewsAuthor.text = news.byline

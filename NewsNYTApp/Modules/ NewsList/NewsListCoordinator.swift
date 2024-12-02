@@ -18,7 +18,7 @@ class NewsListCoordinator: Coordinator {
         navigation?.pushViewController(viewController, animated: true)
     }
     
-    func showNewsDetail(of news: News) {
+    func showDetail(of news: News) {
         let model = NewsDetailModel(news: news)
         let viewModel = NewsDetailViewModel(model: model)
         let viewController = NewsDetailViewController(viewModel: viewModel)

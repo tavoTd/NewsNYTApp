@@ -79,15 +79,12 @@ class News {
             
             if element.format == ImageFormat.standar.rawValue {
                 self.image.smallData = imageData
-                self.image.smallSize = UIImage(data: imageData)
                 
             } else if element.format == ImageFormat.medium210.rawValue {
                 self.image.normalData = imageData
-                self.image.normalSize = UIImage(data: imageData)
                 
             } else if element.format == ImageFormat.medium440.rawValue {
                 self.image.largeData = imageData
-                self.image.largeSize = UIImage(data: imageData)
                 
             }
         }
@@ -98,19 +95,25 @@ class NewsImage {
     var type: String
     var caption: String
     var copyright: String
-    var smallSize: UIImage?
-    var normalSize: UIImage?
-    var largeSize: UIImage?
     var smallData: Data?
     var normalData: Data?
     var largeData: Data?
+
+    var small: UIImage? {
+        return createImage(data: self.smallData)
+    }
+    
+    var normal: UIImage? {
+        return createImage(data: self.normalData)
+    }
+    
+    var large: UIImage? {
+        return createImage(data: self.largeData)
+    }
     
     init(type: String = "",
          caption: String = "",
          copyright: String = "",
-         smallSize: UIImage? = UIImage(named: "img_noAvailable"),
-         normalSize: UIImage? = UIImage(named: "img_noAvailable"),
-         largeSize: UIImage? = UIImage(named: "img_noAvailable"),
          smallData: Data? = nil,
          normalData: Data? = nil,
          largeData: Data? = nil) {
@@ -118,11 +121,16 @@ class NewsImage {
         self.type = type
         self.caption = caption
         self.copyright = copyright
-        self.smallSize = smallSize
         self.smallData = smallData
-        self.normalSize = normalSize
         self.normalData = normalData
-        self.largeSize = largeSize
         self.largeData = largeData
+    }
+    
+    private func createImage(data: Data?) -> UIImage? {
+        guard let imageData = data else {
+            return UIImage(named: "img_noAvailable")
+        }
+        
+        return UIImage(data: imageData)
     }
 }

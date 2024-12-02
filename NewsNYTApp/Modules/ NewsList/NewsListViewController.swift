@@ -27,6 +27,50 @@ class NewsListViewController: UIViewController {
         return tableView
     }()
     
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightCyan
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
+    
+    lazy var imageErrorService: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "img_errorService")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        return imageView
+    }()
+    
+    lazy var labelErrorService: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = UIColor.black
+        label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.6
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+    
+    lazy var buttonReTry: UIButton = {
+        let button = UIButton()
+        button.setTitle("Reintentar", for: .normal)
+        button.backgroundColor = UIColor.orange
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        button.layer.cornerRadius = 10.0
+        button.addTarget(self, action: #selector(getNewsList), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+    
     private let viewModel: NewsListViewModel
     var coordinator: NewsListCoordinator?
     
@@ -48,7 +92,8 @@ class NewsListViewController: UIViewController {
         self.getNewsList()
     }
     
-    func getNewsList() {
+    @objc func getNewsList() {
+        containerView.isHidden = true
         Loader.shared.show(on: self)
         viewModel.fetchNewsMostViewed()
     }
@@ -59,12 +104,15 @@ extension NewsListViewController {
     func setupObservers() {
         viewModel.showNewsListObservable.observe { value in
             Loader.shared.dismiss()
+            self.tableView.isHidden = false
             self.tableView.reloadData()
         }
         
         viewModel.showErrorService.observe { value in
             Loader.shared.dismiss()
-            self.tableView.reloadData()
+            self.labelErrorService.text = value
+            self.tableView.isHidden = true
+            self.containerView.isHidden = false
         }
     }
 }

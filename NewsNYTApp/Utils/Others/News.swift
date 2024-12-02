@@ -34,6 +34,29 @@ class News {
         self.image = NewsImage()
     }
     
+    init(data: NewsRealmModel) {
+        let imageInfo = NewsImage()
+        imageInfo.type = data.imageType
+        imageInfo.caption = data.imageCaption
+        imageInfo.copyright = data.imageCopyright
+        imageInfo.smallData = data.dataImageSmall
+        imageInfo.normalData = data.dataImageNormal
+        imageInfo.largeData = data.dataImageLarge
+        
+        self.id = data.id
+        self.url = data.url
+        self.publishedDate = data.publishedDate
+        self.updated = data.updated
+        self.section = data.section
+        self.subsection = data.subsection
+        self.byline = data.byline
+        self.type = data.type
+        self.title = data.title
+        self.abstract = data.abstract
+        self.image = imageInfo
+    }
+    
+    
     func getNewsImageInfo(media: Media?) async {
         guard let media = media else {
             return
@@ -48,14 +71,24 @@ class News {
         }
         
         for element in metaData {
-            let image = await UIImage.getImage(from: element.url ?? "")
+            let data = await UIImage.getDataImage(from: element.url ?? "")
+            
+            guard let imageData = data else {
+                return
+            }
             
             if element.format == "Standard Thumbnail" {
-                self.image.smallSize = image
+                self.image.smallData = imageData
+                self.image.smallSize = UIImage(data: imageData)
+                
             } else if element.format == "mediumThreeByTwo210" {
-                self.image.normalSize = image
+                self.image.normalData = imageData
+                self.image.normalSize = UIImage(data: imageData)
+                
             } else if element.format == "mediumThreeByTwo440" {
-                self.image.largeSize = image
+                self.image.largeData = imageData
+                self.image.largeSize = UIImage(data: imageData)
+                
             }
         }
     }
@@ -68,18 +101,28 @@ class NewsImage {
     var smallSize: UIImage?
     var normalSize: UIImage?
     var largeSize: UIImage?
+    var smallData: Data?
+    var normalData: Data?
+    var largeData: Data?
     
     init(type: String = "",
          caption: String = "",
          copyright: String = "",
          smallSize: UIImage? = UIImage(named: "img_noAvailable"),
          normalSize: UIImage? = UIImage(named: "img_noAvailable"),
-         largeSize: UIImage? = UIImage(named: "img_noAvailable")) {
+         largeSize: UIImage? = UIImage(named: "img_noAvailable"),
+         smallData: Data? = nil,
+         normalData: Data? = nil,
+         largeData: Data? = nil) {
+
         self.type = type
         self.caption = caption
         self.copyright = copyright
         self.smallSize = smallSize
+        self.smallData = smallData
         self.normalSize = normalSize
+        self.normalData = normalData
         self.largeSize = largeSize
+        self.largeData = largeData
     }
 }

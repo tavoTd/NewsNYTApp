@@ -47,6 +47,7 @@ class NewsListViewModel {
             }
             
             self.model.newsList = updatedNewsList
+            self.model.saveNewsListBackup()
             self.showNewsListObservable.value = true
         }
     }

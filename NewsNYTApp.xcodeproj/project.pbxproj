@@ -37,6 +37,9 @@
 		77EAAEF92CFC9B9900591CCF /* NewsDetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEF82CFC9B9900591CCF /* NewsDetailViewController+UI.swift */; };
 		77EAAEFD2CFC9C3F00591CCF /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEFC2CFC9C3F00591CCF /* NewsDetailViewModel.swift */; };
 		77EAAEFF2CFC9C8C00591CCF /* NewsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEFE2CFC9C8C00591CCF /* NewsDetailModel.swift */; };
+		77EAAF092CFCF20B00591CCF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77EAAF082CFCF20B00591CCF /* RealmSwift */; };
+		77EAAF0B2CFCF3C300591CCF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAF0A2CFCF3C300591CCF /* RealmManager.swift */; };
+		77EAAF0D2CFD2C0600591CCF /* NewsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAF0C2CFD2C0600591CCF /* NewsRealmModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,8 @@
 		77EAAEF82CFC9B9900591CCF /* NewsDetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDetailViewController+UI.swift"; sourceTree = "<group>"; };
 		77EAAEFC2CFC9C3F00591CCF /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
 		77EAAEFE2CFC9C8C00591CCF /* NewsDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailModel.swift; sourceTree = "<group>"; };
+		77EAAF0A2CFCF3C300591CCF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		77EAAF0C2CFD2C0600591CCF /* NewsRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRealmModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EAAF092CFCF20B00591CCF /* RealmSwift in Frameworks */,
 				77EAAEED2CFBD90000591CCF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +160,8 @@
 				77EAAEBE2CF9427600591CCF /* Coordinator.swift */,
 				77EAAED32CFB589500591CCF /* Observable.swift */,
 				77EAAEF12CFBE19900591CCF /* News.swift */,
+				77EAAF0C2CFD2C0600591CCF /* NewsRealmModel.swift */,
+				77EAAF0A2CFCF3C300591CCF /* RealmManager.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			name = NewsNYTApp;
 			packageProductDependencies = (
 				77EAAEEC2CFBD90000591CCF /* Lottie */,
+				77EAAF082CFCF20B00591CCF /* RealmSwift */,
 			);
 			productName = NewsNYTApp;
 			productReference = 77EAAEA12CF8B46300591CCF /* NewsNYTApp.app */;
@@ -275,6 +284,7 @@
 			mainGroup = 77EAAE982CF8B46300591CCF;
 			packageReferences = (
 				77EAAEEB2CFBD90000591CCF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				77EAAF072CFCF20B00591CCF /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 77EAAEA22CF8B46300591CCF /* Products */;
 			projectDirPath = "";
@@ -317,6 +327,8 @@
 				77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */,
 				77EAAED62CFB694F00591CCF /* NewsMostViewedResponse.swift in Sources */,
 				77EAAEBB2CF8B83D00591CCF /* NewsListViewController.swift in Sources */,
+				77EAAF0D2CFD2C0600591CCF /* NewsRealmModel.swift in Sources */,
+				77EAAF0B2CFCF3C300591CCF /* RealmManager.swift in Sources */,
 				77EAAED22CFB565800591CCF /* NewsListModel.swift in Sources */,
 				77EAAED92CFB733700591CCF /* HttpMethod.swift in Sources */,
 				77EAAED02CFB55F400591CCF /* NewsListViewModel.swift in Sources */,
@@ -559,6 +571,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		77EAAF072CFCF20B00591CCF /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.46.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -566,6 +586,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77EAAEEB2CFBD90000591CCF /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		77EAAF082CFCF20B00591CCF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77EAAF072CFCF20B00591CCF /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,17 +8,18 @@
 import UIKit
 
 extension UIImage {
-    public static func getImage(from url: String) async -> UIImage? {
+
+    public static func getDataImage(from url: String) async -> Data? {
         guard let bundleURL = URL(string: url) else {
-            return UIImage(named: "img_noAvailable")
+            return nil
         }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: bundleURL)
-            return UIImage(data: data)
+            return data
 
         } catch {
-            return UIImage(named: "img_noAvailable")
+            return nil
         }
     }
 }

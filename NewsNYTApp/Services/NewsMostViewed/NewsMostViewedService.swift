@@ -25,7 +25,7 @@ class NewsMostViewedService {
         switch result {
         case .success(let response):
             guard let newsListData: [NewsMostViewedData] = response.data else {
-                throw ServiceError.badURL
+                throw ServiceError.dataNotFound
             }
             return newsListData
             

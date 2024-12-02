@@ -47,11 +47,13 @@ public class CoreService {
         }
         
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
-        //manejo de statusCode
         
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200...201).contains(httpResponse.statusCode) else {
-            throw URLError(.badServerResponse)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw ServiceError.unknownError
+        }
+        
+        guard (200...201).contains(httpResponse.statusCode) else {
+            throw ServiceError.serverError(statusCode: httpResponse.statusCode)
         }
         
         return data

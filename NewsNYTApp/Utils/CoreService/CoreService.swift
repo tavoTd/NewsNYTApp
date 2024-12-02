@@ -37,8 +37,10 @@ public class CoreService {
         
         var urlRequest = URLRequest(url: url, timeoutInterval: 30)
         urlRequest.httpMethod = request.method.rawValue
-        //Aqui se agregan los headers
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        for element in request.headers {
+            urlRequest.addValue(element.value, forHTTPHeaderField: element.key)
+        }
         
         if let body = request.body, request.method != .GET {
             urlRequest.httpBody = try JSONEncoder().encode(body)

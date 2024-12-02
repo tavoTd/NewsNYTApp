@@ -16,7 +16,7 @@ public struct DataRequest<Response: Codable> {
     let body: Codable?
     
     public init(method: HttpMethod,
-                baseURL: String = CoreService.shared.baseURL,
+                baseURL: String,
                 endPoint: String,
                 queryItems: [URLQueryItem]?,
                 headers: [String : String]? = [:],

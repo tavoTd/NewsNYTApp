@@ -10,7 +10,6 @@ import Foundation
 public class CoreService {
     
     public static var shared: CoreService = CoreService()
-    public var baseURL: String = "https://api.nytimes.com"
     
     private init() { }
     

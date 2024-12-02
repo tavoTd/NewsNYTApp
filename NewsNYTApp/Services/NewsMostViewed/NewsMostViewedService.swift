@@ -8,17 +8,17 @@
 import Foundation
 
 class NewsMostViewedService {
-    let apiKey: String = "qTl6HA9lEk9bHwEMNSrdjRAceMnSqQEZ"
     
     func fetchNewsMostViewed() async throws -> [NewsMostViewedData] {
         let queryItems: [URLQueryItem] = [
-            URLQueryItem(name: "api-key", value: self.apiKey)
+            URLQueryItem(name: "api-key", value: Configuration.shared.NYTApiKey)
         ]
         
         let endpoint = "/svc/mostpopular/v2/viewed/1.json"
         let request = DataRequest<NewsMostViewedResponse>(method: .GET,
-                                                         endPoint: endpoint,
-                                                         queryItems: queryItems)
+                                                          baseURL: Configuration.shared.baseURL,
+                                                          endPoint: endpoint,
+                                                          queryItems: queryItems)
         
         let result = await CoreService.shared.makeRequest(request)
         
@@ -28,7 +28,7 @@ class NewsMostViewedService {
                 throw ServiceError.badURL
             }
             return newsListData
-
+            
         case .failure(let error):
             throw error
         }

@@ -77,15 +77,15 @@ class News {
                 return
             }
             
-            if element.format == "Standard Thumbnail" {
+            if element.format == ImageFormat.standar.rawValue {
                 self.image.smallData = imageData
                 self.image.smallSize = UIImage(data: imageData)
                 
-            } else if element.format == "mediumThreeByTwo210" {
+            } else if element.format == ImageFormat.medium210.rawValue {
                 self.image.normalData = imageData
                 self.image.normalSize = UIImage(data: imageData)
                 
-            } else if element.format == "mediumThreeByTwo440" {
+            } else if element.format == ImageFormat.medium440.rawValue {
                 self.image.largeData = imageData
                 self.image.largeSize = UIImage(data: imageData)
                 

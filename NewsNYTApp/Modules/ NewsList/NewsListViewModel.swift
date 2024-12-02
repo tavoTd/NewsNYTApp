@@ -25,7 +25,7 @@ class NewsListViewModel {
         Task {
             do {
                 let service = NewsMostViewedService()
-                let response = try await service.fetchNewsMostViewed()
+                let response = try await service.fetchNewsMostViewed(in: .day)
                 self.buildNewsList(response)
 
             } catch {

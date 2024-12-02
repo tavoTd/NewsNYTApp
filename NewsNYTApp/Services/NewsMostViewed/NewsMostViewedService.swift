@@ -9,12 +9,12 @@ import Foundation
 
 class NewsMostViewedService {
     
-    func fetchNewsMostViewed() async throws -> [NewsMostViewedData] {
+    func fetchNewsMostViewed(in timeRange: TimeRange) async throws -> [NewsMostViewedData] {
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "api-key", value: Configuration.shared.NYTApiKey)
         ]
         
-        let endpoint = "/svc/mostpopular/v2/viewed/1.json"
+        let endpoint = "/svc/mostpopular/v2/viewed/\(timeRange.rawValue).json"
         let request = DataRequest<NewsMostViewedResponse>(method: .GET,
                                                           baseURL: Configuration.shared.baseURL,
                                                           endPoint: endpoint,

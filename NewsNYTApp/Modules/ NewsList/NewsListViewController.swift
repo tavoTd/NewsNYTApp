@@ -102,7 +102,7 @@ class NewsListViewController: UIViewController {
     @objc func getNewsList() {
         containerView.isHidden = true
         Loader.shared.show(on: self)
-        viewModel.fetchNewsMostViewed()
+        viewModel.getNewsMostViewed()
     }
 }
 
@@ -110,7 +110,7 @@ extension NewsListViewController {
 
     func setupObservers() {
         viewModel.showNewsListObservable.observe { value in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self else { return }
                 Loader.shared.dismiss()
                 self.tableView.isHidden = false
@@ -119,7 +119,7 @@ extension NewsListViewController {
         }
         
         viewModel.showErrorService.observe { value in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self else { return }
                 Loader.shared.dismiss()
                 self.labelErrorService.text = value

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 class NewsListViewModel {
     
@@ -21,7 +22,20 @@ class NewsListViewModel {
         self.model = model
     }
     
-    func fetchNewsMostViewed() {
+    func getNews(from index: Int) -> News {
+        return model.newsList[index]
+    }
+    
+    func getNewsMostViewed() {
+        if self.model.isConnected {
+            self.fetchNewsMostViewed()
+
+        } else {
+            self.fetchNewsMostViewedBackup()
+        }
+    }
+    
+    private func fetchNewsMostViewed() {
         Task {
             do {
                 let service = NewsMostViewedService()
@@ -37,7 +51,6 @@ class NewsListViewModel {
     
     private func buildNewsList(_ response: [NewsMostViewedData]) {
         Task {
-            self.model.newsList.removeAll()
             var updatedNewsList: [News] = []
             
             for element in response {
@@ -46,13 +59,21 @@ class NewsListViewModel {
                 updatedNewsList.append(news)
             }
             
+            self.model.newsList.removeAll()
             self.model.newsList = updatedNewsList
             self.model.saveNewsListBackup()
             self.showNewsListObservable.value = true
         }
     }
     
-    func getNews(from index: Int) -> News {
-        return model.newsList[index]
+    private func fetchNewsMostViewedBackup() {
+        self.model.fetchNewsListBackup()
+        
+        if self.model.newsList.isEmpty {
+            self.showErrorService.value = "Error de conexion a internet"
+            
+        } else {
+            self.showNewsListObservable.value = true
+        }
     }
 }

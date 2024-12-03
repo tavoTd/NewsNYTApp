@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		772234FF2CFE9049003A5826 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 77EAAF082CFCF20B00591CCF /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		772235022CFE98D6003A5826 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772235012CFE98D6003A5826 /* NetworkMonitor.swift */; };
 		77EAAEA52CF8B46300591CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEA42CF8B46300591CCF /* AppDelegate.swift */; };
 		77EAAEAE2CF8B46300591CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAD2CF8B46300591CCF /* Assets.xcassets */; };
 		77EAAEB12CF8B46300591CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAF2CF8B46300591CCF /* LaunchScreen.storyboard */; };
@@ -45,7 +47,22 @@
 		77EAAF142CFD6C4800591CCF /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAF132CFD6C4800591CCF /* ImageFormat.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		772235002CFE9049003A5826 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				772234FF2CFE9049003A5826 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		772235012CFE98D6003A5826 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		77EAAEA12CF8B46300591CCF /* NewsNYTApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNYTApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EAAEA42CF8B46300591CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EAAEAD2CF8B46300591CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +187,7 @@
 				77EAAF0C2CFD2C0600591CCF /* NewsRealmModel.swift */,
 				77EAAF0A2CFCF3C300591CCF /* RealmManager.swift */,
 				77EAAF0E2CFD657D00591CCF /* Configuration.swift */,
+				772235012CFE98D6003A5826 /* NetworkMonitor.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -261,6 +279,7 @@
 				77EAAE9D2CF8B46300591CCF /* Sources */,
 				77EAAE9E2CF8B46300591CCF /* Frameworks */,
 				77EAAE9F2CF8B46300591CCF /* Resources */,
+				772235002CFE9049003A5826 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EAAEC92CFA912F00591CCF /* UIColor+Extension.swift in Sources */,
+				772235022CFE98D6003A5826 /* NetworkMonitor.swift in Sources */,
 				77EAAEA52CF8B46300591CCF /* AppDelegate.swift in Sources */,
 				77EAAEDB2CFB7BFE00591CCF /* CoreService.swift in Sources */,
 				77EAAEC12CF942E900591CCF /* NewsListCoordinator.swift in Sources */,
@@ -507,6 +527,7 @@
 				BASE_URL = "https://api.nytimes.com";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BAB5CMY748;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsNYTApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -539,6 +560,7 @@
 				BASE_URL = "https://api.nytimes.com";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BAB5CMY748;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsNYTApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

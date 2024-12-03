@@ -35,7 +35,7 @@ public class CoreService {
             throw ServiceError.badURL
         }
         
-        var urlRequest = URLRequest(url: url, timeoutInterval: 30)
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
         urlRequest.httpMethod = request.method.rawValue
 
         for element in request.headers {

@@ -9,8 +9,10 @@ import Foundation
 
 class NewsListModel {
     var newsList: [News] = []
+    var isConnected: Bool = false
     
     public init() {
+        self.checkInternetConnection()
     }
     
     func saveNewsListBackup() {
@@ -41,5 +43,12 @@ class NewsListModel {
         
         self.newsList.removeAll()
         self.newsList = updatedNewsList
+    }
+
+    private func checkInternetConnection() {
+        NetworkMonitor.shared.onStatusChange = { [weak self] isConnected in
+            guard let self else { return }
+            self.isConnected = isConnected
+        }
     }
 }

@@ -14,27 +14,19 @@ class NetworkMonitor {
     private let queue = DispatchQueue.global(qos: .background)
     private var path: NWPath?
     
-    var isConnected: Bool {
-        return path?.status == .satisfied
-    }
+    var isConnected: Bool = false
     
     var connectionType: NWInterface.InterfaceType? {
         return getConnectionType(from: path)
     }
     
-    var onStatusChange: ((Bool) -> Void)?
-    
     private init() {
-        startMonitoring()
     }
     
-    private func startMonitoring() {
+    func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] newPath in
             self?.path = newPath
-            let isConnected = newPath.status == .satisfied
-            DispatchQueue.main.async {
-                self?.onStatusChange?(isConnected)
-            }
+            self?.isConnected = newPath.status == .satisfied
         }
         monitor.start(queue: queue)
     }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Network
 
 class NewsListViewModel {
     
@@ -27,7 +26,7 @@ class NewsListViewModel {
     }
     
     func getNewsMostViewed() {
-        if self.model.isConnected {
+        if NetworkMonitor.shared.isConnected {
             self.fetchNewsMostViewed()
 
         } else {

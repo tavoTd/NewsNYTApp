@@ -84,7 +84,7 @@ class NewsListViewModel {
             case .serverError(let statusCode):
                 if statusCode == 401 {
                     self.showErrorService.value = ErrorMessage.sessionExpired
-                } else if statusCode == 421 {
+                } else if statusCode == 429 {
                     self.fetchNewsMostViewedBackup(auxMessage: ErrorMessage.general)
                 } else {
                     self.showErrorService.value = ErrorMessage.general

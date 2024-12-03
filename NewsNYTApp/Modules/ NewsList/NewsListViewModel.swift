@@ -35,6 +35,17 @@ class NewsListViewModel {
         }
     }
     
+    private func fetchNewsMostViewedBackup(auxMessage: String = ErrorMessage.withoutInternetConnection) {
+        self.model.fetchNewsListBackup()
+        
+        if self.model.newsList.isEmpty {
+            self.showErrorService.value = auxMessage
+            
+        } else {
+            self.showNewsListObservable.value = true
+        }
+    }
+    
     private func fetchNewsMostViewed() {
         Task {
             do {
@@ -43,8 +54,7 @@ class NewsListViewModel {
                 self.buildNewsList(response)
 
             } catch {
-                self.showErrorService.value = "\(error.localizedDescription)"
-                print("El error que ocurrio es este \(error)")
+                self.validateError(error)
             }
         }
     }
@@ -66,14 +76,41 @@ class NewsListViewModel {
         }
     }
     
-    private func fetchNewsMostViewedBackup() {
-        self.model.fetchNewsListBackup()
-        
-        if self.model.newsList.isEmpty {
-            self.showErrorService.value = "Error de conexion a internet"
-            
-        } else {
-            self.showNewsListObservable.value = true
+    private func validateError(_ error: Error) {
+        if let serviceError = error as? ServiceError {
+            switch serviceError {
+            case .networkUnavailable:
+                self.fetchNewsMostViewedBackup()
+                
+            case .serverError(let statusCode):
+                if statusCode == 401 {
+                    self.showErrorService.value = ErrorMessage.sessionExpired
+                } else if statusCode == 421 {
+                    self.fetchNewsMostViewedBackup(auxMessage: ErrorMessage.general)
+                } else {
+                    self.showErrorService.value = ErrorMessage.general
+                }
+
+            case .unauthorizedRequest:
+                self.showErrorService.value = ErrorMessage.sessionExpired
+
+            case .limitRequestReached:
+                self.fetchNewsMostViewedBackup(auxMessage: ErrorMessage.general)
+
+            default:
+                self.showErrorService.value = ErrorMessage.general
+            }
+
+            return
         }
+        
+        if let urlError = error as? URLError,
+           urlError.code == .notConnectedToInternet {
+            self.fetchNewsMostViewedBackup()
+            
+            return
+        }
+        
+        self.showErrorService.value = ErrorMessage.general
     }
 }

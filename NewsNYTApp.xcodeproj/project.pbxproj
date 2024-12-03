@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		772234FF2CFE9049003A5826 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 77EAAF082CFCF20B00591CCF /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		772235022CFE98D6003A5826 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772235012CFE98D6003A5826 /* NetworkMonitor.swift */; };
+		772235042CFEA7D9003A5826 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772235032CFEA7D9003A5826 /* ErrorMessage.swift */; };
 		77EAAEA52CF8B46300591CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EAAEA42CF8B46300591CCF /* AppDelegate.swift */; };
 		77EAAEAE2CF8B46300591CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAD2CF8B46300591CCF /* Assets.xcassets */; };
 		77EAAEB12CF8B46300591CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EAAEAF2CF8B46300591CCF /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		772235012CFE98D6003A5826 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		772235032CFEA7D9003A5826 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		77EAAEA12CF8B46300591CCF /* NewsNYTApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNYTApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EAAEA42CF8B46300591CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EAAEAD2CF8B46300591CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				77EAAF0A2CFCF3C300591CCF /* RealmManager.swift */,
 				77EAAF0E2CFD657D00591CCF /* Configuration.swift */,
 				772235012CFE98D6003A5826 /* NetworkMonitor.swift */,
+				772235032CFEA7D9003A5826 /* ErrorMessage.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				77EAAEF72CFC9B1800591CCF /* NewsDetailViewController.swift in Sources */,
 				77EAAEC62CF948E100591CCF /* NewsListViewController+UI.swift in Sources */,
 				77EAAF0F2CFD657D00591CCF /* Configuration.swift in Sources */,
+				772235042CFEA7D9003A5826 /* ErrorMessage.swift in Sources */,
 				77EAAEF42CFBEF2E00591CCF /* UIImage+Extension.swift in Sources */,
 				77EAAF122CFD6B0E00591CCF /* TimeRange.swift in Sources */,
 				77EAAEDF2CFB917900591CCF /* ServiceError.swift in Sources */,

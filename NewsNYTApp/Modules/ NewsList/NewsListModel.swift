@@ -16,7 +16,6 @@ class NewsListModel {
     }
     
     func saveNewsListBackup() {
-
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             RealmManager.shared.delete(object: NewsRealmModel.self)
@@ -31,7 +30,6 @@ class NewsListModel {
     
     func fetchNewsListBackup() {
         guard let newsArray = RealmManager.shared.getAll(objects: NewsRealmModel.self) else {
-            print("No se obtuvo la información de realmSwift")
             return
         }
         
